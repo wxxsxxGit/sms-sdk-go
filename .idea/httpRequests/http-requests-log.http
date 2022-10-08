@@ -1,0 +1,7 @@
+GET https://httpbin.org/get?show_env=1
+Accept: application/json
+
+<> 2021-10-14T090345.200.json
+
+###
+
