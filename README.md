@@ -62,5 +62,5 @@ templateUrl: xxxxxxxxx
 linux环境
 ./demo
 windows环境
-双击执行
+双击执行demo.exe
 ```
