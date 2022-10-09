@@ -33,8 +33,8 @@ func configPrompt() {
 func init() {
 	viper.SetConfigName("sms")  // name of config file (without extension)
 	viper.SetConfigType("yaml") // REQUIRED if the config file does not have the extension in the name
-	viper.AddConfigPath(".")    // path to look for the config file in
 	viper.AddConfigPath("/etc") // call multiple times to add many search paths
+	viper.AddConfigPath(".")    // path to look for the config file in
 	viper.AddConfigPath("./config/")
 	viper.AddConfigPath("../config/")
 	viper.AddConfigPath("../../config/")
