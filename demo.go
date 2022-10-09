@@ -531,6 +531,7 @@ func demoTemplateDelete(templateCode int64) error {
 	if err != nil {
 		return err
 	}
+	fmt.Println(string(body))
 	tdrb := &smsutils.TemplateDeleteRespBody{}
 	err = json.Unmarshal(body, &tdrb)
 	if err != nil {
