@@ -143,6 +143,7 @@ func main() {
 	//审核成功提交模板短信
 	if tempValue == 1 {
 		fmt.Println(globalTemplateCode, "审核通过")
+		sperator(1)
 	} else if tempValue == 2 {
 		//审核失败修改模板，只有在模板审核失败时才可以修改模板
 		fmt.Println("模板审核失败,模板修改后提交")
@@ -488,6 +489,7 @@ func demoTemplateStatus(templateCodes ...int64) (map[int64]uint8, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println(string(body))
 	tsrb := &smsutils.TemplateStatusRespBody{}
 	err = json.Unmarshal(body, &tsrb)
 	if err != nil {

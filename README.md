@@ -37,7 +37,7 @@ go mod tidy
 go build demo.go
 ```
 ### 配置文件
-
+```
 配置文件名字为sms.yaml
 依次从/etc目录
 命令执行位置的当前目录
@@ -46,6 +46,7 @@ go build demo.go
 命令执行位置的上两级config目录
 命令执行位置的上三级config目录
 查找sms.yaml文件，查找到就作为配置文件
+```
 配置文件内容如下,配置信息联系运营获取
 ```
 spId: xxxxxxxxx
