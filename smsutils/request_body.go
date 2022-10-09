@@ -41,8 +41,8 @@ type SecureSendRequestBody struct {
 	Content string `json:"content"`
 }
 
-//模板报备body
-type TemplateAddBody struct {
+//模板报备请求body
+type TemplateAddRequestBody struct {
 	TemplateName    string `json:"templateName"`
 	TemplateType    int    `json:"templateType"`
 	TemplateContent string `json:"templateContent"`
@@ -50,7 +50,7 @@ type TemplateAddBody struct {
 }
 
 //修改模板body
-type TemplateModifyBody struct {
+type TemplateModifyRequestBody struct {
 	TemplateCode    int64  `json:"templateCode"`
 	TemplateName    string `json:"templateName"`
 	TemplateType    int    `json:"templateType"`
@@ -59,25 +59,25 @@ type TemplateModifyBody struct {
 }
 
 //删除模板body
-type TemplateDeleteBody struct {
+type TemplateDeleteRequestBody struct {
 	TemplateCode int64 `json:"templateCode"`
 }
 
 //查询模板状态body
-type TemplateStatusBody struct {
+type TemplateStatusRequestBody struct {
 	TemplateCodes string `json:"templateCodes"`
 }
 
 //模板单条发送body
-type TemplateSendSmsBody struct {
-	SignName     string            `json:"signName"`
-	TemplateCode int64             `json:"templateCode"`
-	Params       map[string]string `json:"params"`
-	Mobile       string            `json:"mobile"`
-	Msgid        string            `json:"msgid"`
-	ExtCode      string            `json:"extCode"`
-	SId          string            `json:"sId"`
+type TemplateSendSmsRequestItem struct {
+	SignName     string `json:"signName"`
+	TemplateCode int64  `json:"templateCode"`
+	Params       string `json:"params"`
+	Mobile       string `json:"mobile"`
+	Msgid        string `json:"msgid,omitempty"`
+	ExtCode      string `json:"extCode,omitempty"`
+	SId          string `json:"sId,omitempty"`
 }
 
 //模板批量发送Body
-type TemplateSendBatchSmsBody []*TemplateSendSmsBody
+type TemplateSendBatchSmsRequestBody []*TemplateSendSmsRequestItem

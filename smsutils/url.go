@@ -42,27 +42,30 @@ func (ss *SmsSigner) DailyStatsUrl() string {
 
 //报备模板url
 func (ss *SmsSigner) TemplateAddUrl() string {
-	return strings.TrimRight(ss.ReportUrl, "/") + "/sms/template/add/" + ss.SpId
+	return strings.TrimRight(ss.TemplateUrl, "/") + "/sms/template/add/" + ss.SpId
 }
 
 //修改模板url
 func (ss *SmsSigner) TemplateModifyUrl() string {
-	return strings.TrimRight(ss.ReportUrl, "/") + "/sms/template/modify/" + ss.SpId
+	return strings.TrimRight(ss.TemplateUrl, "/") + "/sms/template/modify/" + ss.SpId
 }
 
 //删除模板url
 func (ss *SmsSigner) TemplateDeleteUrl() string {
-	return strings.TrimRight(ss.ReportUrl, "/") + "/sms/template/delete/" + ss.SpId
+	return strings.TrimRight(ss.TemplateUrl, "/") + "/sms/template/delete/" + ss.SpId
 }
 
 //查询模板状态url
 func (ss *SmsSigner) TemplateStatusUrl() string {
-	return strings.TrimRight(ss.ReportUrl, "/") + "/sms/template/status/" + ss.SpId
+	return strings.TrimRight(ss.TemplateUrl, "/") + "/sms/template/status/" + ss.SpId
 }
 
 //模板短信发送 单条发送url
-func (ss *SmsSigner) TemplateSendBatchSmsUrl() string {
-	return strings.TrimRight(ss.ReportUrl, "/") + "/sms/template/sendBatchSms/" + ss.SpId
+func (ss *SmsSigner) TemplateSendSmsUrl() string {
+	return strings.TrimRight(ss.TemplateUrl, "/") + "/sms/template/sendSms/" + ss.SpId
 }
 
 //模板短信发送  批量短信发送url
+func (ss *SmsSigner) TemplateSendBatchSmsUrl() string {
+	return strings.TrimRight(ss.TemplateUrl, "/") + "/sms/template/sendBatchSms/" + ss.SpId
+}

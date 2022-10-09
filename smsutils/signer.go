@@ -15,6 +15,8 @@ type SmsSigner struct {
 	SmsSendUrl string `json:"BaseUrl"`
 	//平台支持客户主动来获取短信的状态报告，我方提供主动获取短信报告的接口
 	ReportUrl string `json:"reportUrl"`
+	//模板操作的Url地址
+	TemplateUrl string `json:"templateUrl"`
 }
 
 /*
@@ -26,50 +28,13 @@ type SmsSigner struct {
 }
 */
 
-//短信单发
-type SingleSendRequestBody struct {
-	//必须。最大长度1005。短信内容，例如： 【线上线下】您的验证码为123456，在10分钟内有效。
-	Content string `json:"content"`
-	//必须。多个号码用,分隔开，号码数量<=10000
-	Mobile string `json:"mobile"`
-	//可选。可选。扩展码，必须可解析为数字,最大长度12
-	ExtCode string `json:"extCode"`
-	//可选。最大长度64。批次号，可用于客户侧按照批次号对短信进行分组
-	SId string `json:"sId"`
-}
-
-//短信群发，单条短信的结构
-type BatchSendItemReuqestBody struct {
-	//必须。最大长度1005。短信内容，例如： 【线上线下】您的验证码为123456，在10分钟内有效。
-	Content string `json:"content"`
-	//必须。多个号码用,分隔开，号码数量<=10000
-	Mobile string `json:"mobile"`
-	//可选。可选。扩展码，必须可解析为数字,最大长度12
-	ExtCode string `json:"extCode"`
-	//自定义msgId，若不传，由我们平台生成一个msgId返回，若设置此值，平台将使用此msgId作为此次提交的唯一编号并返回此msgId
-	MsgId string `json:"msgid"`
-}
-
-type ActiveFetchRequestBody struct {
-	//可选 默认500，支持范围[10, 1000]，参数超出范围按照默认算
-	MaxSize int `json:"maxSize"`
-}
-
-type DailyStatsRequestBody struct {
-	//必选,最大长度8，日期格式化：yyyyMMdd 示例： 20200101
-	Date string `json:"date"`
-}
-
-type SecureSendRequestBody struct {
-	Content string `json:"content"`
-}
-
-func NewSmsSigner(spId, spKey, smsSendUrl, reportUrl string) *SmsSigner {
+func NewSmsSigner(spId, spKey, smsSendUrl, reportUrl string, templateUrl string) *SmsSigner {
 	return &SmsSigner{
-		SpId:       spId,
-		SpKey:      spKey,
-		SmsSendUrl: smsSendUrl,
-		ReportUrl:  reportUrl,
+		SpId:        spId,
+		SpKey:       spKey,
+		SmsSendUrl:  smsSendUrl,
+		ReportUrl:   reportUrl,
+		TemplateUrl: templateUrl,
 	}
 }
 
